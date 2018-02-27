@@ -7,7 +7,7 @@ class SearchBar extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { term: '', focus: false };
+        this.state = { term: ''};
 
         this.onInputChange = this.onInputChange.bind(this);
         this.onFormSubmit = this.onFormSubmit.bind(this);
@@ -28,14 +28,13 @@ class SearchBar extends Component {
     onReset(event) {
         event.preventDefault();
         this.props.resetWeather();
-        this.setState({term: '', focus: true});
+        this.setState({term: ''});
     }
 
     render() {
         return (
                 <form onSubmit={this.onFormSubmit} className="input-group">
                     <input
-                    autoFocus={this.focus}
                     placeholder="Get a five-day forcast in your favorite cities"
                     className="form-control"
                     value={this.state.term}
